@@ -1,0 +1,10 @@
+.rs_productlistslider > .swiper-wrapper > .productData
+{
+    padding-bottom:0;
+    margin-bottom:20px;
+}
+.rs_productlistslider > .swiper-button-prev,
+.rs_productlistslider > .swiper-button-next
+{
+    color:#009ec0;
+}
