@@ -6,6 +6,8 @@ Replace existing product sliders with modern swiper implementation.
 
 https://swiperjs.com/
 
+![](shop1.png)
+
 ## Install
 
 1. Copy files into following directory
