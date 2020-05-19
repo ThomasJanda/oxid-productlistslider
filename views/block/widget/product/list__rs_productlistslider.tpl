@@ -4,6 +4,8 @@
     [{$smarty.block.parent}]
 [{elseif $sViewName=="manufacturerlist"}]
     [{$smarty.block.parent}]
+[{elseif $sViewName=="search"}]
+    [{$smarty.block.parent}]
 [{else}]
     [{include file="rs/productlistslider/views/tpl/widget/product/list.tpl"}]
 [{/if}]
