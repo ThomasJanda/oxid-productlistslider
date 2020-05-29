@@ -28,7 +28,7 @@ https://swiperjs.com/
 
 4. Template changes:
 
-    In the file /var/www/html/oxid6_1_dev/source/Application/views/wave_cust/tpl/widget/product/list.tpl add following: 
+    In the file /var/www/html/oxid6_1_dev/source/Application/views/wave/tpl/widget/product/list.tpl add following: 
 
         ...
         [{if $products && !empty($products)}]
