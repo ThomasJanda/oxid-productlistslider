@@ -52,4 +52,3 @@ https://swiperjs.com/
 5. Enable module in the oxid admin area, Extensions => Modules
 
 6. Clear template and language cache
-
