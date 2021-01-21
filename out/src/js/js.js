@@ -52,40 +52,54 @@ window.addEventListener("resize", function(){
 
 class rs_productlistslider_slider {
 
-    constructor(id, slidesPerView) {
+    constructor(id, slidesPerView, infinityLoop, naviButtons, naviPagination, naviScrollbar) {
         this.id = id;
         this.slidesPerView = slidesPerView;
+        this.naviButtons = parseInt(naviButtons);
+        this.naviPagination = parseInt(naviPagination);
+        this.naviScrollbar = parseInt(naviScrollbar);
+        this.infinityLoop = parseInt(infinityLoop);
         this.init();
     }
 
     init() {
 
-      this.swiper = new Swiper ('#' + this.id, {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: this.getSliderPerView(),
-        loop: true,
+        let param = {
+            direction: 'horizontal',
+            slidesPerView: this.getSliderPerView(),
+            loop: (this.infinityLoop===1)
+        };
 
-        // If we need pagination
-        /*
-        pagination: {
-          el: '.swiper-pagination',
-        },
-         */
+        if(this.naviButtons)
+        {
+            param = Object.assign(param,{
+                navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+                }
+            });
+        }
+        if(this.naviPagination)
+        {
+            param = Object.assign(param,{
+              pagination: {
+              el: '.swiper-pagination',
+              clickable: true
+              }
+            });
+        }
+        if(this.naviScrollbar)
+        {
+            param = Object.assign(param,{
+              scrollbar: {
+              el: '.swiper-scrollbar',
+              draggable: true
+              }
+            });
+        }
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
 
-        // And if we need scrollbar
-        /*
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-         */
-      });
+      this.swiper = new Swiper ('#' + this.id, param);
     }
 
     getSliderPerView() {
@@ -118,9 +132,9 @@ class rs_productlistslider_slider {
     }
 }
 
-function rs_productlistslider_slider_create(id, slidesPerView)
+function rs_productlistslider_slider_create(id, slidesPerView, infinityLoop, naviButtons, naviPagination, naviScrollbar)
 {
-    let slider = new rs_productlistslider_slider(id, slidesPerView);
+    let slider = new rs_productlistslider_slider(id, slidesPerView, infinityLoop, naviButtons, naviPagination, naviScrollbar);
     rs_productlistslider_slider_manager.push(slider);
 }
 function rs_productlistslider_slider_reinit_all() {
@@ -138,5 +152,11 @@ Array.prototype.filter.call(tmp, function(el){
         $('#' + id + ' > div > div > form > div.row > div.col-lg-5').removeClass('col-12').removeClass('col-lg-5').addClass('col-5');
         $('#' + id + ' > div > div > form > div.row > div.col-lg-7').removeClass('col-12').removeClass('col-lg-7').addClass('col-7');
     }
-    rs_productlistslider_slider_create(id, el.getAttribute('data-slidesPerView'));
+    rs_productlistslider_slider_create(id, 
+        el.getAttribute('data-slidesPerView'), 
+        el.getAttribute('data-infinityLoop'), 
+        el.getAttribute('data-naviButtons'), 
+        el.getAttribute('data-naviPagination'), 
+        el.getAttribute('data-naviScrollbar')
+    );
 });

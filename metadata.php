@@ -31,6 +31,29 @@ $aModule = array(
         ),
     ),
     'settings'    => array(
-
+        array(
+            'group' => 'rs-productslider_settings',
+            'name'  => 'rs-productslider_settings_navigation_button',
+            'type'  => 'bool',
+            'value' => true,
+        ),
+        array(
+            'group' => 'rs-productslider_settings',
+            'name'  => 'rs-productslider_settings_navigation_pagination',
+            'type'  => 'bool',
+            'value' => false,
+        ),
+        array(
+            'group' => 'rs-productslider_settings',
+            'name'  => 'rs-productslider_settings_navigation_scrollbar',
+            'type'  => 'bool',
+            'value' => false,
+        ),   
+        array(
+            'group' => 'rs-productslider_settings',
+            'name'  => 'rs-productslider_settings_infinity_loop',
+            'type'  => 'bool',
+            'value' => true,
+        ),  
     ),
 );
