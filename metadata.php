@@ -10,13 +10,7 @@ $aModule = array(
     'author'      => '',
     'url'         => '',
     'email'       => '',
-    'extend'      => array(
-        /*
-        \OxidEsales\Eshop\Application\Controller\ArticleDetailsController::class => \rs\reviews\Application\Controller\ArticleDetailsController::class,
-        \OxidEsales\Eshop\Application\Model\Article::class => \rs\reviews\Application\Model\Article::class,
-        \OxidEsales\Eshop\Application\Component\Widget\ArticleDetails::class => \rs\reviews\Application\Component\Widget\ArticleDetails::class
-         */
-    ),
+    'extend'      => array(),
     'controllers' => array(
 
     ),
