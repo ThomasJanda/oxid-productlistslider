@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "rs\\reviews\\": "../../../source/modules/rs/productlistslider"
+      "rs\\productlistslider\\": "../../../source/modules/rs/productlistslider"
     }
   }
 }

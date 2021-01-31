@@ -48,6 +48,31 @@ https://swiperjs.com/
             [{* rs-productlistslider end *}]
         ....
 
+    In the file /var/www/html/oxid6_1_dev/source/Application/views/wave/tpl/page/shop/start.tpl add following: 
+
+        ...
+        [{* rs-productslider start *}]
+        [{section name=list start=1 loop=10 step=1}]
+            [{assign var=id value="rs_productlistslider_"|cat:$smarty.section.list.index}]
+            [{assign var=head value=$id|cat:"_head"}]
+            [{assign var=subhead value=$id|cat:"_subhead"}]
+            [{assign var=list value=$oView->loadActionList($id)}]
+            [{if $list}]
+                [{include file="widget/product/list.tpl" type="infogrid" head=$head|oxmultilangassign subhead=$subhead|oxmultilangassign:$list->count() listId=$id products=$list showMainLink=true iProductsPerLine=4}]
+            [{/if}]
+        [{/section}]
+        [{* rs-productslider end *}]
+
+        [{insert name="oxid_tracker"}]
+        ....
+
+5. Execute following SQL statment to add more action lists to the start page
+
+        INSERT INTO `oxactions` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, OXLONGDESC, OXLONGDESC_1, OXLONGDESC_2, OXLONGDESC_3) VALUES ('rs_productlistslider_1', '1', '1', 'Startpage Action List 1','','','','');
+        INSERT INTO `oxactions` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, OXLONGDESC, OXLONGDESC_1, OXLONGDESC_2, OXLONGDESC_3) VALUES ('rs_productlistslider_2', '1', '1', 'Startpage Action List 2','','','','');
+        INSERT INTO `oxactions` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, OXLONGDESC, OXLONGDESC_1, OXLONGDESC_2, OXLONGDESC_3) VALUES ('rs_productlistslider_3', '1', '1', 'Startpage Action List 3','','','','');
+        INSERT INTO `oxactions` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, OXLONGDESC, OXLONGDESC_1, OXLONGDESC_2, OXLONGDESC_3) VALUES ('rs_productlistslider_4', '1', '1', 'Startpage Action List 4','','','','');
+        INSERT INTO `oxactions` (`OXID`, `OXSHOPID`, `OXTYPE`, `OXTITLE`, OXLONGDESC, OXLONGDESC_1, OXLONGDESC_2, OXLONGDESC_3) VALUES ('rs_productlistslider_5', '1', '1', 'Startpage Action List 5','','','','');
 
 5. Enable module in the oxid admin area, Extensions => Modules
 

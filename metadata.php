@@ -10,9 +10,10 @@ $aModule = array(
     'author'      => '',
     'url'         => '',
     'email'       => '',
-    'extend'      => array(),
+    'extend'      => array(
+        \OxidEsales\Eshop\Application\Controller\StartController::class => \rs\productlistslider\Application\Controller\StartController::class,
+    ),
     'controllers' => array(
-
     ),
     'templates'   => array(
         'rs/productlistslider/views/tpl/widget/product/list.tpl' => 'rs/productlistslider/views/tpl/widget/product/list.tpl',
